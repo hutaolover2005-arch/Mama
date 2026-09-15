@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mama Phyo Wutt Yee Lin 💗</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;overflow:hidden;font-family:Arial,sans-serif;background:linear-gradient(135deg,#ffd6e7,#e8d8ff);display:flex;justify-content:center;align-items:center;text-align:center;color:#555}
+.card{width:90%;max-width:420px;padding:34px 24px;background:rgba(255,255,255,.94);border-radius:28px;box-shadow:0 15px 40px rgba(90,50,100,.18)}
+.emoji{font-size:62px}h1{color:#ff4f8b;margin:14px 0;font-size:30px}p{font-size:18px;line-height:1.5}
+button{border:0;border-radius:30px;padding:14px 28px;margin:8px;font-size:18px;font-weight:bold;cursor:pointer;transition:.2s}
+#yes{background:#ff4f8b;color:white}#no{background:#e5e5e5;color:#555;position:relative}button:active{transform:scale(.95)}
+.hidden{display:none}.heart{position:fixed;top:-40px;font-size:25px;pointer-events:none;animation:fall 3.2s linear forwards}
+@keyframes fall{0%{transform:translateY(-40px) rotate(0);opacity:1}100%{transform:translateY(110vh) rotate(360deg);opacity:0}}
+.small{font-size:14px;color:#999}
+</style>
+</head>
+<body>
+<div class="card" id="question">
+<div class="emoji">🥺💗</div>
+<h1>Hey Mama Phyo Wutt Yee Lin...</h1>
+<p>I have a little question for you 👀</p>
+<p><b>Do you like me? 💕</b></p>
+<button id="yes" onclick="yesClicked()">YES 💗</button>
+<button id="no" onclick="noClicked()">NO 😭</button>
+<p class="small">Choose carefully 😂</p>
+</div>
+<div class="card hidden" id="result">
+<div class="emoji">😍💗🎉</div>
+<h1>YAAAAAY!!</h1>
+<p>I knew it! 😆💕</p>
+<p><b>Mama Phyo Wutt Yee Lin, you just made my day! 🥰</b></p>
+<p>Thank you for saying YES. 💖</p>
+<div class="emoji">💐✨💗</div>
+</div>
+<script>
+const noTexts=["Are you sure? 🥺","Think again 😭","Try again 😂","That button is broken 😏","Maybe YES? 👀","Nice try 😂💗"];
+function noClicked(){const b=document.getElementById("no");const x=Math.random()*220-110;const y=Math.random()*180-90;b.style.transform=`translate(${x}px,${y}px)`;b.textContent=noTexts[Math.floor(Math.random()*noTexts.length)];}
+function yesClicked(){document.getElementById("question").classList.add("hidden");document.getElementById("result").classList.remove("hidden");const emojis=["❤️","💗","💕","💖","💘","✨"];for(let i=0;i<45;i++){setTimeout(()=>{const h=document.createElement("div");h.className="heart";h.textContent=emojis[Math.floor(Math.random()*emojis.length)];h.style.left=Math.random()*100+"vw";h.style.animationDuration=(2.2+Math.random()*2)+"s";document.body.appendChild(h);setTimeout(()=>h.remove(),4500);},i*65);}}
+</script>
+</body>
+</html>
